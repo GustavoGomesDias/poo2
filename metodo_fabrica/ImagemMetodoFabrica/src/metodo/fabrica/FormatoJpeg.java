@@ -1,6 +1,4 @@
-
 package metodo.fabrica;
-
 
 public class FormatoJpeg implements Formato{
 
@@ -9,7 +7,4 @@ public class FormatoJpeg implements Formato{
         System.out.println("gera jpeg");
         return null;
     }
-    
-    
-    
 }

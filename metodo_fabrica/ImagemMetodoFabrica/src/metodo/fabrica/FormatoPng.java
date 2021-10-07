@@ -1,6 +1,4 @@
-
 package metodo.fabrica;
-
 
 public class FormatoPng implements Formato{
 
@@ -9,7 +7,4 @@ public class FormatoPng implements Formato{
         System.out.println("gera png");
         return null;
     }
-    
-    
-    
 }

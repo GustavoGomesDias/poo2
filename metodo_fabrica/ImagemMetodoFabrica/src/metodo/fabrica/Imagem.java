@@ -1,7 +1,5 @@
-
 package metodo.fabrica;
 
-
-class Imagem {
+public class Imagem {
     
 }
