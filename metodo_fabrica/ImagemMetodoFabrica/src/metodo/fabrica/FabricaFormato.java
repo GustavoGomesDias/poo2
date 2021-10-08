@@ -10,6 +10,8 @@ public class FabricaFormato {
             gerador = new FormatoPng();
         } else if (formato.equalsIgnoreCase("gif")) {
             gerador = new FormatoGif();
+        } else if (formato.equalsIgnoreCase("bmp")) {
+            gerador = new FormatoBmp();
         }
         return gerador;
     }
