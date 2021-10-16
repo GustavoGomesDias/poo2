@@ -115,6 +115,7 @@ public class TelaInicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MousePressed
+//
         EditorTexto editor = new EditorTexto((String) this.getTema().getSelectedItem());
         editor.setVisible(true);         
     }//GEN-LAST:event_jMenu2MousePressed
