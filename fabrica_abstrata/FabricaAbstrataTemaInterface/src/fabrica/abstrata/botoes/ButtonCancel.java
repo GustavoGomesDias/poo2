@@ -17,7 +17,6 @@ import javax.swing.JButton;
 public class ButtonCancel extends JButton{
     
     public ButtonCancel(){
-        
         Image img = null;
         try {
             img = ImageIO.read(getClass().getResource("/Cancel-icon.jpg"));
