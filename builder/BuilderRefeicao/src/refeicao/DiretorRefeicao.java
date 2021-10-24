@@ -13,17 +13,19 @@ public class DiretorRefeicao {
         if(tipoBebida.equalsIgnoreCase("refrigerante"))
             refeicaoBuilder.adicionarRefrigerante(sabor);
         else
-            refeicaoBuilder.adicionarSuco(sabor);                
+            refeicaoBuilder.adicionarSuco(sabor);
+        refeicaoBuilder.preparaBatata();
         refeicaoBuilder.prepadaHamburgerCarne();
         return novaRefeicao;        
-    }     
+    }
     public Refeicao preparaVegetariana(String sabor, String tipoBebida){        
         Refeicao novaRefeicao = new Refeicao();
         VegetarianoBuilder refeicaoBuilder = new VegetarianoBuilder(novaRefeicao);        
         if(tipoBebida.equalsIgnoreCase("refrigerante"))
             refeicaoBuilder.adicionarRefrigerante(sabor);
         else
-            refeicaoBuilder.adicionarSuco(sabor);     
+            refeicaoBuilder.adicionarSuco(sabor);
+        refeicaoBuilder.preparaBatata();
         refeicaoBuilder.preparaHamburgerVegetariano();
         return novaRefeicao;        
     }            
