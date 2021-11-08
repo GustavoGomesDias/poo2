@@ -1,0 +1,5 @@
+id;cliente;email;data_nascimento;telefone;total_compras
+1;Felipe;felipe@email.com;10/10/2000;202020;2000
+2;Antonio;antonio@email.com;11/10/2000;2324234;10000
+3;Carlos;carlos@email.com;12/10/2000;234243;3000
+4;Joaquim;joaquim@email.com;13/10/2000;2342342;10000
