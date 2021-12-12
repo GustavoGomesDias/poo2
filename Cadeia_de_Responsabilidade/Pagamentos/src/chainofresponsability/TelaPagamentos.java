@@ -28,6 +28,8 @@ public class TelaPagamentos extends javax.swing.JFrame {
         valorFatura = new javax.swing.JTextField();
         caixaSelecaoBoleto = new javax.swing.JCheckBox();
         caixaSelecaoCartao = new javax.swing.JCheckBox();
+        caixaSelecaoCheque = new javax.swing.JCheckBox();
+        caixaSelecaoDinheiro = new javax.swing.JCheckBox();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,47 +57,55 @@ public class TelaPagamentos extends javax.swing.JFrame {
         });
 
         caixaSelecaoCartao.setText("Cartão");
+        caixaSelecaoCheque.setText("Cheque");
+        caixaSelecaoDinheiro.setText("Dinheiro");
 
         jLabel2.setText("Forma de Pagamento:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(valorFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(18, 18, 18)
-                            .addComponent(caixaSelecaoBoleto)
-                            .addGap(10, 10, 10)
-                            .addComponent(caixaSelecaoCartao)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(142, 142, 142)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel1)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(valorFatura, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabel2)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(caixaSelecaoBoleto)
+                                                        .addGap(10, 10, 10)
+                                                        .addComponent(caixaSelecaoCartao)
+                                                        .addGap(10, 10, 10)
+                                                        .addComponent(caixaSelecaoCheque)
+                                                        .addGap(10, 10, 10)
+                                                        .addComponent(caixaSelecaoDinheiro)))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jButton1)
+                                                .addGap(142, 142, 142)))
+                                .addContainerGap(112, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(valorFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(caixaSelecaoBoleto)
-                    .addComponent(caixaSelecaoCartao))
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addContainerGap(169, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel1)
+                                        .addComponent(valorFatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel2)
+                                        .addComponent(caixaSelecaoBoleto)
+                                        .addComponent(caixaSelecaoCartao)
+                                        .addComponent(caixaSelecaoCheque)
+                                        .addComponent(caixaSelecaoDinheiro))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)
+                                .addContainerGap(169, Short.MAX_VALUE))
         );
 
         pack();
@@ -110,17 +120,24 @@ public class TelaPagamentos extends javax.swing.JFrame {
     }//GEN-LAST:event_caixaSelecaoBoletoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                
-       PagamentoHandler boleto = new BoletoHandler();               
-       PagamentoHandler cartao = new CartaoHandler();
-       boleto.setNextHandler(cartao);
-       ArrayList lista = new ArrayList();       
-       if(caixaSelecaoBoleto.isSelected())
-          lista.add(BoletoHandler.BOLETO);
-       if(caixaSelecaoCartao.isSelected())
-          lista.add(CartaoHandler.CARTAO);                     
-       boleto.processHander(lista, Integer.parseInt(valorFatura.getText()));                       
-       
+
+        PagamentoHandler boleto = new BoletoHandler();
+        PagamentoHandler cartao = new CartaoHandler();
+        PagamentoHandler cheque = new ChequeHandler();
+        PagamentoHandler dinheiro = new DinheiroHandler();
+
+        boleto.setNextHandler(cartao);
+        cartao.setNextHandler(cheque);
+        cheque.setNextHandler(dinheiro);
+
+        ArrayList lista = new ArrayList();
+        if (caixaSelecaoBoleto.isSelected()) lista.add(BoletoHandler.BOLETO);
+        if (caixaSelecaoCartao.isSelected()) lista.add(CartaoHandler.CARTAO);
+        if (caixaSelecaoCheque.isSelected()) lista.add((ChequeHandler.CHEQUE));
+        if (caixaSelecaoDinheiro.isSelected()) lista.add(DinheiroHandler.DINHEIRO);
+
+        boleto.processHander(lista, Integer.parseInt(valorFatura.getText()));
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -130,7 +147,7 @@ public class TelaPagamentos extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -162,6 +179,8 @@ public class TelaPagamentos extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox caixaSelecaoBoleto;
     private javax.swing.JCheckBox caixaSelecaoCartao;
+    private javax.swing.JCheckBox caixaSelecaoCheque;
+    private javax.swing.JCheckBox caixaSelecaoDinheiro;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
