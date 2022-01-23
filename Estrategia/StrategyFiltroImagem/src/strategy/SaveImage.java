@@ -87,14 +87,13 @@ public class SaveImage extends Component implements ActionListener {
                 return; 
         case 1:  /* low pass filter */
         case 2:  /* sharpen */
-            Filter blur = new Filter(BLUR3x3);
-            Filter sharpen = new Filter(SHARPEN3x3);
-            op = (opIndex == 1) ? blur.returnConversionStrategy() : sharpen.returnConversionStrategy();
+            ChangeImage blur = new ChangeImage(new Filter(BLUR3x3));
+            ChangeImage sharpen = new ChangeImage(new Filter(SHARPEN3x3));
+            op = (opIndex == 1) ? blur.returnConversion() : sharpen.returnConversion();
             break;
-        case 3 : /* lookup */
-            Lookup lookup = new Lookup(null);
-
-            op = lookup.returnConversionStrategy();
+        case 3 : /* lookup */ ;
+            ChangeImage lookup = new ChangeImage(new Lookup(null));
+            op = lookup.returnConversion();
             break;
         }
  
